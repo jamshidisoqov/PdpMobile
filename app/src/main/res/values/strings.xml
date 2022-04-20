@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Pdp.Uz</string>
+    <string name="mentorlar">Mentorlar</string>
+    <string name="pdp_uz">PDP.uz</string>
+    <string name="kurslar">Kurslar</string>
+    <string name="todo">TODO</string>
+    <string name="soni">O\'quvchilar soni:20ta</string>
+    <string name="guruh_nomi">Guruh nomi</string>
+    <string name="mentorni_tanlang">Mentorni tanlang</string>
+    <string name="kunlari">Kunlari</string>
+    <string name="vaqti">Vaqti</string>
+    <string name="familiyasi">Familiyasi</string>
+    <string name="ismi">Ismi</string>
+    <string name="otasining_ismi">Otasining ismi</string>
+    <string name="date">12/22/2021</string>
+    <string name="guruhlar">Guruhlar</string>
+</resources>

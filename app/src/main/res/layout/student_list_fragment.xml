@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="24dp"
+    android:orientation="vertical"
+    tools:context=".ui.main.group.student.list.StudentListFragment">
+
+    <TextView
+        android:id="@+id/tv_group_name_student_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/app_color"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"
+        android:text="PDP Android G-23"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/app_color"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"
+        android:text="O'quvchilar soni:20"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/app_color"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"
+        android:text="Vaqti: 16:30-18:30"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guruhda dars boshlash"
+        android:layout_marginBottom="4dp"
+        android:textAllCaps="false"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/app_color"
+        android:textSize="18sp"
+
+        android:textAlignment="center"
+        android:layout_marginBottom="4dp"
+        android:text="Barcha o'quvchilar ro'yxati"/>
+
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:listitem="@layout/rcv_student_list_item"/>
+
+</LinearLayout>

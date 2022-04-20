@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    tools:context=".ui.main.group.list.GroupListFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_group_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/rcv_group_item"
+        android:layout_marginTop="@dimen/margin_std"
+        android:layout_marginStart="@dimen/margin_std"
+        android:layout_marginEnd="@dimen/margin_std"/>
+
+</FrameLayout>
