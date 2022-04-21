@@ -19,7 +19,7 @@ interface PdpDao {
 
     @Transaction
     @Query("SELECT * FROM course")
-    fun getCourses(): Flow<List<Course>>
+    suspend fun getCourses(): List<Course>
 
     @Transaction
     @Query("SELECT EXISTS(SELECT * FROM course WHERE courseName=(:courseName))")

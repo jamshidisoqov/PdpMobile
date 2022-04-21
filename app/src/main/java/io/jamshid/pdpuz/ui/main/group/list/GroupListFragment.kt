@@ -13,13 +13,14 @@ import io.jamshid.pdpuz.ui.main.course.list.adapters.CourseListAdapter
 import io.jamshid.pdpuz.utils.base.BaseFragment
 import javax.inject.Inject
 
-class GroupListFragment : BaseFragment<ViewModel>() {
+class GroupListFragment : BaseFragment<GroupListViewModel>() {
 
 
     private val vm: GroupListViewModel by viewModels()
     private var _binding: GroupListFragmentBinding? = null
     private val binding: GroupListFragmentBinding get() = _binding!!
     private lateinit var adapter: CourseListAdapter
+    private val isNavigate:Boolean = true
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,9 +29,9 @@ class GroupListFragment : BaseFragment<ViewModel>() {
         _binding = GroupListFragmentBinding.inflate(inflater, container, false)
         adapter = CourseListAdapter()
         binding.rcvGroupList.adapter = adapter
+        super.configActionBar("Group",false)
 
-        super.configActionBar("Group", false)
-        super.viewModel=vm
+        configActionBar("Group", false)
 
         return binding.root
     }
@@ -39,6 +40,13 @@ class GroupListFragment : BaseFragment<ViewModel>() {
         super.onDestroy()
         _binding = null
     }
+
+
+    override val isNavigateBack: Boolean
+        get() = isNavigate
+
+    override val viewModel: GroupListViewModel
+        get() = vm
 
 
 }

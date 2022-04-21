@@ -1,7 +1,16 @@
 package io.jamshid.pdpuz.ui.main.group.list
 
-import androidx.lifecycle.ViewModel
+import io.jamshid.pdpuz.utils.base.BaseViewModel
 
-class GroupListViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class GroupListViewModel : BaseViewModel() {
+
+    override fun addMenu() {
+
+    }
+
+     fun <T:Any> navigateTo(name: T) {
+        navigate(GroupListFragmentDirections.actionGroupListFragmentToGroupDetailFragment(aaa = name as String))
+    }
+
+
 }

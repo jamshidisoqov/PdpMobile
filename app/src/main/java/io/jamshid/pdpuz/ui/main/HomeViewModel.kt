@@ -1,7 +1,7 @@
 package io.jamshid.pdpuz.ui.main
 
-import androidx.lifecycle.ViewModel
+import io.jamshid.pdpuz.utils.base.BaseViewModel
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel : BaseViewModel() {
 
 }
