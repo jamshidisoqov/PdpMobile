@@ -2,19 +2,21 @@ package io.jamshid.pdpuz.ui.main.group.list
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import io.jamshid.pdpuz.R
 import io.jamshid.pdpuz.databinding.GroupListFragmentBinding
 import io.jamshid.pdpuz.ui.main.course.list.adapters.CourseListAdapter
+import io.jamshid.pdpuz.utils.base.BaseFragment
+import javax.inject.Inject
 
-class GroupListFragment : Fragment() {
+class GroupListFragment : BaseFragment<ViewModel>() {
 
 
-    private val viewModel: GroupListViewModel by viewModels()
+    private val vm: GroupListViewModel by viewModels()
     private var _binding: GroupListFragmentBinding? = null
     private val binding: GroupListFragmentBinding get() = _binding!!
     private lateinit var adapter: CourseListAdapter
@@ -24,9 +26,12 @@ class GroupListFragment : Fragment() {
     ): View? {
 
         _binding = GroupListFragmentBinding.inflate(inflater, container, false)
-
         adapter = CourseListAdapter()
         binding.rcvGroupList.adapter = adapter
+
+        super.configActionBar("Group", false)
+        super.viewModel=vm
+
         return binding.root
     }
 
