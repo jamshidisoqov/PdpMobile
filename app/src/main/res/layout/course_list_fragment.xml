@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,10 +10,12 @@
         android:id="@+id/rcv_course_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/margin_std"
         android:layout_marginStart="@dimen/margin_std"
-        tools:listitem="@layout/rcv_group_item"
-        android:layout_marginEnd="@dimen/margin_std"/>
+        android:layout_marginTop="@dimen/margin_std"
+        android:layout_marginEnd="@dimen/margin_std"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/rcv_group_item" />
 
 
 </FrameLayout>

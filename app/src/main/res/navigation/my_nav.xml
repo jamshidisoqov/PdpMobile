@@ -48,7 +48,9 @@
         <action
             android:id="@+id/action_groupDetailFragment_to_studentListFragment"
             app:destination="@id/studentListFragment" />
-        <argument android:name="aaa" app:argType="string"/>
+      <argument
+            android:name="course"
+            app:argType="io.jamshid.pdpuz.data.local.entities.course.Course" />
     </fragment>
     <fragment
         android:id="@+id/addStudentFragment"
@@ -79,6 +81,9 @@
         <action
             android:id="@+id/action_courseDetailFragment_to_addStudentOfCourseFragment"
             app:destination="@id/addStudentOfCourseFragment" />
+        <argument
+            android:name="course"
+            app:argType="io.jamshid.pdpuz.data.local.entities.course.Course" />
     </fragment>
     <fragment
         android:id="@+id/addStudentOfCourseFragment"

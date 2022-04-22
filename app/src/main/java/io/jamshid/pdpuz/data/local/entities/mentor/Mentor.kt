@@ -2,6 +2,7 @@ package io.jamshid.pdpuz.data.local.entities.mentor
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
 data class Mentor(
@@ -10,4 +11,4 @@ data class Mentor(
     val lastName: String,
     val middleName: String,
     val courseId: String
-)
+):Serializable

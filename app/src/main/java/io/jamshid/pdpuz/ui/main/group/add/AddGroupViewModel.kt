@@ -1,7 +1,7 @@
 package io.jamshid.pdpuz.ui.main.group.add
 
-import androidx.lifecycle.ViewModel
+import io.jamshid.pdpuz.utils.base.BaseViewModel
 
-class AddGroupViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class AddGroupViewModel : BaseViewModel() {
+
 }

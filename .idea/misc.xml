@@ -6,6 +6,7 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/drawable/group_detail_bg.xml" value="0.1715" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/font/poppins_semibold.xml" value="0.2828125" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/activity_main.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/add_course_dialog.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/add_group_fragment.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/add_mentor_fragment.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/add_student_fragment.xml" value="0.2526041666666667" />
@@ -20,6 +21,7 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/home_fragment.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/mentor_detail_fragment.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/mentor_list_fragment.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/progress_dialog.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/rcv_group_item.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/rcv_mentor_item.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/rcv_student_list_item.xml" value="0.2526041666666667" />
@@ -27,6 +29,7 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/update_student_fragment.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/layout/vp_of_details_fragment.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/menu/action_bar_menu.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/PdpUz/app/src/main/res/menu/action_bar_no.xml" value="0.2526041666666667" />
       </map>
     </option>
   </component>

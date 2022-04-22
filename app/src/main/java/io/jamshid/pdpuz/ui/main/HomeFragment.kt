@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import io.jamshid.pdpuz.MainActivity
 import io.jamshid.pdpuz.R
+import io.jamshid.pdpuz.data.local.entities.course.Course
 import io.jamshid.pdpuz.databinding.HomeFragmentBinding
 import io.jamshid.pdpuz.utils.base.BaseFragment
 
@@ -38,7 +39,7 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
             }
         }
 
-        super.configActionBar("Home",false)
+        super.configActionBar("Home")
 
         return binding.root
     }

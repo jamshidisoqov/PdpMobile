@@ -44,8 +44,12 @@ interface PdpDao {
     suspend fun insertGroup(group: Group)
 
     @Transaction
-    @Query("SELECT * FROM `group` WHERE courseId = :courseName")
-    fun getGroupsByCourse(courseName: String): Flow<List<Group>>
+    @Query("SELECT * FROM `group` WHERE courseId = :courseName AND isOpened=1")
+    suspend fun getGroupsByCourseActive(courseName: String): List<Group>
+
+    @Transaction
+    @Query("SELECT * FROM `group` WHERE courseId = :courseName AND isOpened=0")
+    suspend fun getGroupsByCourseInActive(courseName: String): List<Group>
 
     @Transaction
     @Query("SELECT COUNT(studentId) FROM student WHERE groupName = :groupName")

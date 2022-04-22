@@ -13,15 +13,5 @@ class GetCoursesUseCase
     private val pdpDao: PdpDao
 ) {
 
-
-    operator fun invoke(): Flow<Resourse<List<Course>>> = flow {
-        try {
-            emit(Resourse.Loading())
-            val allCourse = pdpDao.getCourses()
-            emit(Resourse.Success(allCourse))
-        } catch (e: Exception) {
-            emit(Resourse.Error(e.localizedMessage))
-        }
-
-    }
+    suspend operator fun invoke(): List<Course> = pdpDao.getCourses()
 }

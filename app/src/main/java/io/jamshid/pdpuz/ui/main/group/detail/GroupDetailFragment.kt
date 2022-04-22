@@ -1,32 +1,58 @@
 package io.jamshid.pdpuz.ui.main.group.detail
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import io.jamshid.pdpuz.R
+import io.jamshid.pdpuz.databinding.GroupDetailFragmentBinding
+import io.jamshid.pdpuz.utils.base.BaseFragment
 
-class GroupDetailFragment : Fragment() {
+class GroupDetailFragment : BaseFragment<GroupDetailViewModel>() {
 
-    companion object {
-        fun newInstance() = GroupDetailFragment()
-    }
+    private val args: GroupDetailFragmentArgs by navArgs()
+    private var _binding: GroupDetailFragmentBinding? = null
+    private val binding: GroupDetailFragmentBinding get() = _binding!!
+    private val isNavigate: Boolean = true
+    private val vm: GroupDetailViewModel by viewModels()
 
-    private lateinit var viewModel: GroupDetailViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.group_detail_fragment, container, false)
+        _binding = GroupDetailFragmentBinding.inflate(inflater, container, false)
+        setHasOptionsMenu(true)
+        configActionBar("Guruhlar")
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(GroupDetailViewModel::class.java)
-        // TODO: Use the ViewModel
+
+    override val viewModel: GroupDetailViewModel
+        get() = vm
+    override val isNavigateBack: Boolean
+        get() = isNavigate
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.action_bar_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.add -> {
+               vm.navigateTo()
+            }
+            android.R.id.home -> {
+                findNavController().navigateUp()
+            }
+        }
+        return true
+    }
+
+
 
 }

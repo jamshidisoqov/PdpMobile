@@ -17,21 +17,4 @@ import io.jamshid.pdpuz.data.local.entities.student.Student
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun dao(): PdpDao
-
-    companion object {
-        @Volatile
-        private var INSTANCE: AppDatabase? = null
-        fun getDatabase(ctx: Context): AppDatabase {
-            val tempInstance = INSTANCE
-            if (tempInstance != null) return tempInstance
-            synchronized(this) {
-                val instance = Room.databaseBuilder(ctx, AppDatabase::class.java, "user_databases")
-                    .fallbackToDestructiveMigration()
-                    .build()
-
-                INSTANCE = instance
-                return instance
-            }
-        }
-    }
 }

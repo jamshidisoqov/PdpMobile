@@ -11,8 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
+import io.jamshid.pdpuz.MainActivity
 import io.jamshid.pdpuz.R
 import kotlinx.coroutines.flow.collectLatest
+
 
 abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
 
@@ -40,22 +43,8 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
          findNavController().navigate(navCommand)
     }
 
-    fun configActionBar(title: String, isAdded: Boolean) {
+    fun configActionBar(title: String) {
         actionBarTitle(title)
-        setHasOptionsMenu(true)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.action_bar_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-     if (item.itemId == android.R.id.home) {
-            findNavController().navigateUp()
-        }
-        return true
     }
 
     private fun actionBarTitle(title: String) {
@@ -64,6 +53,16 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment() {
             setTitle(title)
             setDisplayHomeAsUpEnabled(isNavigateBack)
         }
+    }
+
+    fun hideProgress() {
+        if (activity != null)
+            (requireActivity() as MainActivity).showProgress(false)
+    }
+
+    fun showProgress() {
+        if (activity != null)
+            (requireActivity() as MainActivity).showProgress(true)
     }
 
 }

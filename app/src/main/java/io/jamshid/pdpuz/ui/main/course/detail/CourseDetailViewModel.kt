@@ -1,7 +1,11 @@
 package io.jamshid.pdpuz.ui.main.course.detail
 
-import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import io.jamshid.pdpuz.utils.base.BaseViewModel
+import javax.inject.Inject
 
-class CourseDetailViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+
+@HiltViewModel
+class CourseDetailViewModel @Inject constructor() : BaseViewModel() {
+
 }

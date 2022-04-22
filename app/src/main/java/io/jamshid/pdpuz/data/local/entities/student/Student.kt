@@ -2,6 +2,7 @@ package io.jamshid.pdpuz.data.local.entities.student
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity
 data class Student(
@@ -11,4 +12,4 @@ data class Student(
     val birthDate: String,
     val groupName: String,
     @PrimaryKey val studentId: Int? = null
-)
+):Serializable
