@@ -23,7 +23,7 @@ object AppModule {
         return Room.databaseBuilder(
             app,
             AppDatabase::class.java,
-            "pdp_mobile"
+            "pdpuz"
         ).build()
     }
 

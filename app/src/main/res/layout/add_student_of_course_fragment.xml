@@ -60,8 +60,10 @@
             android:id="@+id/ed_date_student_of_course"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:editable="false"
             android:drawableEnd="@drawable/ic_calendar"
-            android:inputType="none" />
+            android:inputType="none"
+            tools:ignore="Deprecated" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

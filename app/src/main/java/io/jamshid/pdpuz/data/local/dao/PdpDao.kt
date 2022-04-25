@@ -6,6 +6,7 @@ import io.jamshid.pdpuz.data.local.entities.group.Group
 import io.jamshid.pdpuz.data.local.entities.mentor.Mentor
 import io.jamshid.pdpuz.data.local.entities.student.Student
 import kotlinx.coroutines.flow.Flow
+import java.nio.charset.CodingErrorAction.REPLACE
 
 @Dao
 interface PdpDao {
@@ -27,12 +28,12 @@ interface PdpDao {
 
     //Functions for modifying "mentors" table
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     suspend fun insertMentor(mentor: Mentor)
 
     @Transaction
     @Query("SELECT * FROM mentor WHERE courseId = :courseName")
-    fun getMentorsByCourse(courseName: String): Flow<List<Mentor>>
+    suspend fun getMentorsByCourse(courseName: String): List<Mentor>
 
     @Delete
     suspend fun deleteMentor(mentor: Mentor)
@@ -52,11 +53,19 @@ interface PdpDao {
     suspend fun getGroupsByCourseInActive(courseName: String): List<Group>
 
     @Transaction
+    @Query("SELECT * FROM `group` WHERE courseId = :courseName")
+    suspend fun getGroupsByCourse(courseName: String): List<Group>
+
+    @Transaction
     @Query("SELECT COUNT(studentId) FROM student WHERE groupName = :groupName")
     suspend fun getStudentsCountByGroup(groupName: String): Int
 
     @Delete
     suspend fun deleteGroup(group: Group)
+
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun updateGroup(group: Group)
+
 
 
     //Functions for modifying "students" table
@@ -66,7 +75,7 @@ interface PdpDao {
 
     @Transaction
     @Query("SELECT * FROM student WHERE groupName = :groupName")
-    fun getStudentsByGroup(groupName: String): Flow<List<Student>>
+    suspend fun getStudentsByGroup(groupName: String): List<Student>
 
     @Delete
     suspend fun deleteStudent(student: Student)

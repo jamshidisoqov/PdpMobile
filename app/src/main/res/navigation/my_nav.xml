@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="io.jamshid.pdpuz.ui.main.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/home_fragment" >
+        tools:layout="@layout/home_fragment">
         <action
             android:id="@+id/action_homeFragment_to_groupListFragment"
             app:destination="@id/groupListFragment" />
@@ -24,7 +24,7 @@
         android:id="@+id/groupListFragment"
         android:name="io.jamshid.pdpuz.ui.main.group.list.GroupListFragment"
         android:label="group_list_fragment"
-        tools:layout="@layout/group_list_fragment" >
+        tools:layout="@layout/group_list_fragment">
         <action
             android:id="@+id/action_groupListFragment_to_groupDetailFragment"
             app:destination="@id/groupDetailFragment" />
@@ -33,22 +33,24 @@
         android:id="@+id/addGroupFragment"
         android:name="io.jamshid.pdpuz.ui.main.group.add.AddGroupFragment"
         android:label="add_group_fragment"
-        tools:layout="@layout/add_group_fragment" />
+        tools:layout="@layout/add_group_fragment" >
+        <argument
+            android:name="courseName"
+            app:argType="string"
+            android:defaultValue="Android Development" />
+    </fragment>
     <fragment
         android:id="@+id/groupDetailFragment"
         android:name="io.jamshid.pdpuz.ui.main.group.detail.GroupDetailFragment"
         android:label="group_detail_fragment"
-        tools:layout="@layout/group_detail_fragment" >
+        tools:layout="@layout/group_detail_fragment">
         <action
             android:id="@+id/action_groupDetailFragment_to_addGroupFragment"
             app:destination="@id/addGroupFragment" />
         <action
-            android:id="@+id/action_groupDetailFragment_to_groupInfoFragment"
-            app:destination="@id/groupInfoFragment" />
-        <action
             android:id="@+id/action_groupDetailFragment_to_studentListFragment"
             app:destination="@id/studentListFragment" />
-      <argument
+        <argument
             android:name="course"
             app:argType="io.jamshid.pdpuz.data.local.entities.course.Course" />
     </fragment>
@@ -57,18 +59,12 @@
         android:name="io.jamshid.pdpuz.ui.main.group.student.add.AddStudentFragment"
         android:label="add_student_fragment"
         tools:layout="@layout/add_student_fragment" />
-    <fragment
-        android:id="@+id/groupInfoFragment"
-        android:name="io.jamshid.pdpuz.ui.main.group.info.GroupInfoFragment"
-        android:label="group_info_fragment"
-        tools:layout="@layout/group_info_fragment" >
 
-    </fragment>
     <fragment
         android:id="@+id/courseListFragment"
         android:name="io.jamshid.pdpuz.ui.main.course.list.CourseListFragment"
         android:label="course_list_fragment"
-        tools:layout="@layout/course_list_fragment" >
+        tools:layout="@layout/course_list_fragment">
         <action
             android:id="@+id/action_courseListFragment_to_courseDetailFragment"
             app:destination="@id/courseDetailFragment" />
@@ -77,7 +73,7 @@
         android:id="@+id/courseDetailFragment"
         android:name="io.jamshid.pdpuz.ui.main.course.detail.CourseDetailFragment"
         android:label="course_detail_fragment"
-        tools:layout="@layout/course_detail_fragment" >
+        tools:layout="@layout/course_detail_fragment">
         <action
             android:id="@+id/action_courseDetailFragment_to_addStudentOfCourseFragment"
             app:destination="@id/addStudentOfCourseFragment" />
@@ -89,18 +85,25 @@
         android:id="@+id/addStudentOfCourseFragment"
         android:name="io.jamshid.pdpuz.ui.main.course.add.AddStudentOfCourseFragment"
         android:label="add_student_of_course_fragment"
-        tools:layout="@layout/add_student_of_course_fragment" />
+        tools:layout="@layout/add_student_of_course_fragment" >
+        <argument
+            android:name="course"
+            app:argType="io.jamshid.pdpuz.data.local.entities.course.Course" />
+    </fragment>
     <fragment
         android:id="@+id/studentListFragment"
         android:name="io.jamshid.pdpuz.ui.main.group.student.list.StudentListFragment"
         android:label="student_list_fragment"
-        tools:layout="@layout/student_list_fragment" >
+        tools:layout="@layout/student_list_fragment">
         <action
             android:id="@+id/action_studentListFragment_to_addStudentFragment"
             app:destination="@id/addStudentFragment" />
         <action
             android:id="@+id/action_studentListFragment_to_updateStudentFragment"
             app:destination="@id/updateStudentFragment" />
+        <argument
+            android:name="group"
+            app:argType="io.jamshid.pdpuz.data.local.entities.group.Group" />
     </fragment>
     <fragment
         android:id="@+id/updateStudentFragment"
@@ -111,7 +114,7 @@
         android:id="@+id/mentorListFragment"
         android:name="io.jamshid.pdpuz.ui.main.mentor.list.MentorListFragment"
         android:label="mentor_list_fragment"
-        tools:layout="@layout/mentor_list_fragment" >
+        tools:layout="@layout/mentor_list_fragment">
         <action
             android:id="@+id/action_mentorListFragment_to_mentorDetailFragment"
             app:destination="@id/mentorDetailFragment" />
@@ -120,14 +123,22 @@
         android:id="@+id/mentorDetailFragment"
         android:name="io.jamshid.pdpuz.ui.main.mentor.detail.MentorDetailFragment"
         android:label="mentor_detail_fragment"
-        tools:layout="@layout/mentor_detail_fragment" >
+        tools:layout="@layout/mentor_detail_fragment">
         <action
             android:id="@+id/action_mentorDetailFragment_to_addMentorFragment"
             app:destination="@id/addMentorFragment" />
+        <argument
+            android:name="course"
+            app:argType="io.jamshid.pdpuz.data.local.entities.course.Course" />
     </fragment>
     <fragment
         android:id="@+id/addMentorFragment"
         android:name="io.jamshid.pdpuz.ui.main.mentor.add.AddMentorFragment"
         android:label="add_mentor_fragment"
-        tools:layout="@layout/add_mentor_fragment" />
+        tools:layout="@layout/add_mentor_fragment" >
+        <argument
+            android:name="courseName"
+            app:argType="string"
+            android:defaultValue="Android Development" />
+    </fragment>
 </navigation>

@@ -8,12 +8,13 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import io.jamshid.pdpuz.R
 import io.jamshid.pdpuz.data.local.entities.course.Course
-import io.jamshid.pdpuz.data.local.entities.group.Group
 import io.jamshid.pdpuz.databinding.GroupListFragmentBinding
 import io.jamshid.pdpuz.domain.interfases.OnItemClickListener
 import io.jamshid.pdpuz.ui.main.group.list.adapters.GroupListAdapter
 import io.jamshid.pdpuz.utils.base.BaseFragment
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class GroupListFragment : BaseFragment<GroupListViewModel>() {
@@ -24,12 +25,11 @@ class GroupListFragment : BaseFragment<GroupListViewModel>() {
     private val binding: GroupListFragmentBinding get() = _binding!!
     private lateinit var adapter: GroupListAdapter
     private val isNavigate: Boolean = true
-    var arrL = ArrayList<Group>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
 
 
@@ -40,15 +40,14 @@ class GroupListFragment : BaseFragment<GroupListViewModel>() {
             }
         })
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            vm.allGroup.collectLatest {
-                // adapter.differ.submitList(it.data)
-
-                if (it.isLoading)
-                    showProgress()
-                else hideProgress()
+            vm.allCourses.collectLatest {
+                adapter.setData(it)
             }
         }
+
+
         configActionBar("Kurslar")
+
         binding.rcvGroupList.adapter = adapter
 
         setHasOptionsMenu(true)
@@ -62,7 +61,7 @@ class GroupListFragment : BaseFragment<GroupListViewModel>() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.action_bar_menu,menu)
+        inflater.inflate(R.menu.action_bar_no,menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 

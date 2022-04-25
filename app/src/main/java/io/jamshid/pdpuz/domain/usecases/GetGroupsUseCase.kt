@@ -11,8 +11,6 @@ class GetGroupsUseCase @Inject constructor(private val pdpDao: PdpDao){
     operator fun invoke():Flow<Resourse<List<Group>>> = flow {
         try {
             emit(Resourse.Loading())
-            val allGroup = pdpDao.getGroupsByCourse("")
-            emit(Resourse.Success(allGroup))
         }catch (e:Exception){
             emit(Resourse.Error(e.localizedMessage))
         }

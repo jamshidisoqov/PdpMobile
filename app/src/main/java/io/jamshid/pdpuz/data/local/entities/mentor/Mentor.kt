@@ -6,7 +6,7 @@ import java.io.Serializable
 
 @Entity
 data class Mentor(
-    @PrimaryKey val mentorId: Int? = null,
+    @PrimaryKey(autoGenerate = true) val mentorId: Int,
     val firstName: String,
     val lastName: String,
     val middleName: String,

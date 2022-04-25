@@ -12,7 +12,7 @@ import io.jamshid.pdpuz.data.local.entities.student.Student
 
 @Database(
     entities = [Course::class, Group::class, Mentor::class, Student::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
