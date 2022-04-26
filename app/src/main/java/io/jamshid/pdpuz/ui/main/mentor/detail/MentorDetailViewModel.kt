@@ -22,5 +22,17 @@ class MentorDetailViewModel @Inject constructor(private val pdpDao: PdpDao) : Ba
         }
     }
 
+    fun updateMentor(mentor: Mentor){
+        viewModelScope.launch {
+            pdpDao.updateMentor(mentor)
+        }
+    }
+
+    fun deleteMentor(mentor: Mentor){
+        viewModelScope.launch {
+            pdpDao.deleteMentor(mentor)
+        }
+    }
+
 
 }

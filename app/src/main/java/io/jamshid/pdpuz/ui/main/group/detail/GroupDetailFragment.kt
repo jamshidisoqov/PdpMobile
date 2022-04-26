@@ -3,6 +3,7 @@ package io.jamshid.pdpuz.ui.main.group.detail
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -45,11 +46,7 @@ class GroupDetailFragment : BaseFragment<GroupDetailViewModel>() {
         binding.vp2Group.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                if (position == 0)
-                    setHasOptionsMenu(false)
-                else {
-                    setHasOptionsMenu(true)
-                }
+                (requireActivity() as AppCompatActivity).invalidateOptionsMenu()
             }
         })
 
@@ -94,6 +91,11 @@ class GroupDetailFragment : BaseFragment<GroupDetailViewModel>() {
     override fun onResume() {
         super.onResume()
         binding.vp2Group.currentItem = 0
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.findItem(R.id.add)?.isVisible = binding.vp2Group.currentItem == 1
     }
 
 }

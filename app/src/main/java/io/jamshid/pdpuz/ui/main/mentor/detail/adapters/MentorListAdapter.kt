@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import io.jamshid.pdpuz.R
 import io.jamshid.pdpuz.data.local.entities.mentor.Mentor
 import io.jamshid.pdpuz.databinding.RcvMentorItemBinding
+import io.jamshid.pdpuz.domain.interfases.OnCustomItemClickListener
 
-class MentorListAdapter : RecyclerView.Adapter<MentorListAdapter.ViewHolder>() {
+class MentorListAdapter(private val onCustomItemClickListener: OnCustomItemClickListener<Mentor>) : RecyclerView.Adapter<MentorListAdapter.ViewHolder>() {
 
     private var mentorList: List<Mentor> = emptyList()
     private lateinit var binding: RcvMentorItemBinding
@@ -19,6 +20,12 @@ class MentorListAdapter : RecyclerView.Adapter<MentorListAdapter.ViewHolder>() {
             binding.apply {
                 tvMentorName.text = "${mentor.firstName} ${mentor.lastName}"
                 tvMentorFathername.text = mentor.middleName
+                binding.imgMentorEdit.setOnClickListener {
+                    onCustomItemClickListener.onEditItemClick(mentor)
+                }
+                binding.imgMentorTrash.setOnClickListener {
+                    onCustomItemClickListener.onTrashItemClick(mentor)
+                }
             }
         }
     }

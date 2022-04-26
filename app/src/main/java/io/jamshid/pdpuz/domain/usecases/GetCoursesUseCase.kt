@@ -14,4 +14,5 @@ class GetCoursesUseCase
 ) {
 
     suspend operator fun invoke(): List<Course> = pdpDao.getCourses()
+
 }

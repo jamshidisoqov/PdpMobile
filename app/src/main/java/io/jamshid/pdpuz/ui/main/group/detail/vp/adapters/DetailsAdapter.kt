@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import io.jamshid.pdpuz.R
 import io.jamshid.pdpuz.data.local.entities.group.Group
 import io.jamshid.pdpuz.databinding.GroupDetailsItemBinding
+import io.jamshid.pdpuz.domain.interfases.OnCustomItemClickListener
 import io.jamshid.pdpuz.domain.interfases.OnItemClickListener
 
-class DetailsAdapter(private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<DetailsAdapter.ViewHolder>() {
+class DetailsAdapter(private val onCustomItemClickListener: OnCustomItemClickListener<Group>) : RecyclerView.Adapter<DetailsAdapter.ViewHolder>() {
     private lateinit var binding: GroupDetailsItemBinding
     private var list: List<Group> = emptyList()
 
@@ -17,7 +18,13 @@ class DetailsAdapter(private val onItemClickListener: OnItemClickListener) : Rec
         fun onBind(group: Group) {
             binding.tvGroupName.text=group.groupName
             binding.root.setOnClickListener {
-                onItemClickListener.onClick(group)
+                onCustomItemClickListener.onItemClick(group)
+            }
+            binding.imgGroupEdit.setOnClickListener {
+                onCustomItemClickListener.onEditItemClick(group)
+            }
+            binding.imgGroupTrash.setOnClickListener {
+                onCustomItemClickListener.onTrashItemClick(group)
             }
         }
     }

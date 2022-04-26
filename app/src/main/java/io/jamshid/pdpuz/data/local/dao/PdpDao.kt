@@ -38,6 +38,9 @@ interface PdpDao {
     @Delete
     suspend fun deleteMentor(mentor: Mentor)
 
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun updateMentor(mentor: Mentor)
+
 
     //Functions for modifying "groups" table
 
